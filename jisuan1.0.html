@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网讯费用计算</title>
+		<style type="text/css">
+			.jisuan{
+				width: 500px;
+                margin: 50px auto;
+			}
+			.PGprice{
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				font-size: 30px;
+				border:2px solid salmon;
+				border-radius:10px;
+				float: left;
+			}
+			.pg_price{
+				border: none;
+				text-indent: 10px;
+			}
+			.PGbt{
+				float: left;
+				margin-left: 5px;
+			}
+			.PGprice input{
+				height: 30px;
+			    line-height: 30px;
+			    width: 100%;
+			    border: 0 none;
+			    outline: 0;
+			    background-color: white;
+			    font-size: 20px;
+			}
+			button{margin: 0;padding: 0;
+			    background-color: #FA8072;
+			    height: 54px;width: 80px;
+				line-height: 58px;
+				border-radius:10px;
+				color: white;
+				font-size: 20px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			
+			function bt(){
+				var PgPrice = document.getElementById("pg_price").value;//获取输入的评估总价
+				if(PgPrice<=100){
+				  var Pgfeiyong = 33*PgPrice;
+				  console.log(111,Pgfeiyong);
+				  alert("网讯费用为"+Pgfeiyong+"元");
+				  return false;
+				}
+				if(100<PgPrice<=1000){
+				  var Pgfeiyong = 13.5*PgPrice+1950;
+				  console.log(222,Pgfeiyong);
+				  alert("网讯费用为"+Pgfeiyong+"元");
+				  return false;
+				}
+				else{
+					var Pgfeiyong = 3.6* PgPrice+11850;
+					console.log(333,Pgfeiyong);
+					alert("网讯费用为"+Pgfeiyong+"元");
+					return false;
+				}
+			}
+			function bt1(){
+				var PgPrice = document.getElementById("pg_price").value;//获取输入的评估总价
+				var yipai_price = 0.7*PgPrice;
+				console.log(444,yipai_price);
+				alert("一拍价格为"+yipai_price+"万元");
+				
+			}
+			function bt2(){
+				var PgPrice = document.getElementById("pg_price").value;//获取输入的评估总价
+				var erpai_price =0.56*PgPrice;
+				console.log(444,erpai_price);
+				alert("二拍价格为"+erpai_price+"万元");
+			}
+		</script>
+	</head>
+	<!--
+			评估费用计算公式：
+			    1、评估总价（PgPrice）<=100万的；                                 评估费用=33*PgPrice(单位万元)  
+				2、评估总价在100万<（PgPrice）<=1000万；              评估费用=13.5*PgPrice(单位万元)+1950                                                        
+				3、评估总价 （PgPrice）>1000万的;           评估费用=3.6* PgPrice(单位万元)+11850                                                  
+				 一拍价格(单位万元)=PgPrice(单位万元)*70%                                              
+				 二拍价格(单位万元)=PgPrice(单位万元)*56%
+		-->
+		
+	<body>
+		<div class="jisuan">
+			<div class="PGprice">
+			   <input type="text"  id="pg_price" class="pg_price" value="" placeholder="输入评估总价/万元"/>
+		    </div>
+		    <div class="PGbt"><button onclick="bt()">评估费</button></div>
+		    <div class="PGbt"><button onclick="bt1()">一拍价</button></div>
+		    <div class="PGbt"><button onclick="bt2()">二拍价</button></div>
+		</div>
+	</body>
+</html>
